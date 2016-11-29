@@ -12,9 +12,48 @@ namespace CS357Project
 {
     public partial class Form1 : Form
     {
+        NFA ogNFA = new NFA();
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void butNextStage_Click(object sender, EventArgs e)
+        {
+            int iFail       = 0;
+            string states   = tbStates.Text.ToString();
+            string alfa     = tbAlfa.Text.ToString();
+            string start    = tbStart.Text.ToString();
+            string fin      = tbFinalStates.Text.ToString();
+
+            if (states.Length == 0)
+            {
+                iFail++;
+            }
+
+            if (alfa.Length == 0)
+            {
+                iFail++;
+            }
+
+            if (start.Length == 0)
+            {
+                iFail++;
+            }
+
+            if (fin.Length == 0)
+            {
+                iFail++;
+            }
+
+            if (iFail == 0)
+            {
+                ogNFA.initStates(states);
+                ogNFA.initLanguage(alfa);
+                ogNFA.initStartEnd(start, fin);
+            }
+
         }
     }
 }
