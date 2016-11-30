@@ -24,8 +24,6 @@ namespace CS357Project
             int iFail       = 0;
             string states   = tbStates.Text.ToString();
             string alfa     = tbAlfa.Text.ToString();
-            string start    = tbStart.Text.ToString();
-            string fin      = tbFinalStates.Text.ToString();
 
             if (states.Length == 0)
             {
@@ -37,21 +35,10 @@ namespace CS357Project
                 iFail++;
             }
 
-            if (start.Length == 0)
-            {
-                iFail++;
-            }
-
-            if (fin.Length == 0)
-            {
-                iFail++;
-            }
-
             if (iFail == 0)
             {
                 ogNFA.initStates(states);
                 ogNFA.initLanguage(alfa);
-                ogNFA.initStartEnd(start, fin);
             }
 
         }
